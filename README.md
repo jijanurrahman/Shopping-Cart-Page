@@ -2,6 +2,9 @@
 
 A modern, feature-rich shopping cart application built with vanilla JavaScript, HTML, and TailwindCSS. This project demonstrates clean code architecture, modular design patterns, and a responsive user interface.
 
+## 🔗Live Demo
+- [https://jijanurrahman.github.io/Shopping-Cart-Page/](https://jijanurrahman.github.io/Shopping-Cart-Page/)
+
 ## 📋 Table of Contents
 
 - [Features](#features)
