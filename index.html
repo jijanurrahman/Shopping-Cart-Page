@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-store text-blue-600"></i>
+                    ShopCart
+                </h1>
+                <div class="flex items-center space-x-4">
+                    <button id="viewCartBtn" class="relative bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-shopping-cart"></i>
+                        View Cart
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Products Section -->
+        <section id="productsSection" class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Products</h2>
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Cart Section (Hidden by default) -->
+        <section id="cartSection" class="hidden">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800">Your Cart</h2>
+                    <button id="backToProducts" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Products
+                    </button>
+                </div>
+                
+                <div id="cartItems" class="space-y-4 mb-6">
+                    <!-- Cart items will be dynamically loaded here -->
+                </div>
+                
+                <div id="emptyCart" class="hidden text-center py-12">
+                    <i class="fas fa-shopping-cart text-gray-400 text-6xl mb-4"></i>
+                    <h3 class="text-xl text-gray-600 mb-4">Your cart is empty</h3>
+                    <p class="text-gray-500">Start shopping to add items to your cart</p>
+                </div>
+                
+                <div id="cartFooter" class="border-t pt-6">
+                    <!-- Promo Code Section -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-3">Promo Code</h3>
+                        <div class="flex space-x-3">
+                            <input type="text" id="promoCodeInput" placeholder="Enter promo code" 
+                                   class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <button id="applyPromoBtn" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                Apply
+                            </button>
+                        </div>
+                        <div id="promoMessage" class="mt-2 text-sm hidden"></div>
+                        <div id="appliedPromo" class="mt-2 text-sm text-green-600 hidden">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="appliedPromoText"></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Total Section -->
+                    <div class="mb-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-lg">Subtotal:</span>
+                            <span class="text-lg">$<span id="cartSubtotal">0.00</span></span>
+                        </div>
+                        <div id="discountRow" class="flex justify-between items-center mb-2 text-green-600 hidden">
+                            <span class="text-lg">Discount (<span id="discountPercent">0</span>%):</span>
+                            <span class="text-lg">-$<span id="discountAmount">0.00</span></span>
+                        </div>
+                        <div class="flex justify-between items-center border-t pt-2">
+                            <span class="text-xl font-bold">Total:</span>
+                            <span class="text-xl font-bold">$<span id="cartTotal">0.00</span></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex justify-between items-center">
+                        <div></div>
+                        <div class="space-x-4">
+                            <button id="clearCartBtn" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                                <i class="fas fa-trash"></i>
+                                Clear Cart
+                            </button>
+                            <button id="checkoutBtn" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                <i class="fas fa-credit-card"></i>
+                                Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold">Checkout Summary</h3>
+                    <button id="closeCheckout" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="checkoutItems" class="space-y-2 mb-4 max-h-60 overflow-y-auto">
+                    <!-- Checkout items will be loaded here -->
+                </div>
+                
+                <div class="border-t pt-4">
+                    <div class="flex justify-between items-center text-lg font-bold mb-4">
+                        <span>Total: $<span id="checkoutTotal">0.00</span></span>
+                    </div>
+                    
+                    <button id="confirmCheckout" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                        Confirm Purchase
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 text-center">
+                <i class="fas fa-check-circle text-green-600 text-6xl mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Order Successful!</h3>
+                <p class="text-gray-600 mb-6">Thank you for your purchase. Your order has been placed successfully.</p>
+                <button id="closeSuccess" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <span id="toastMessage">Item added to cart!</span>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/promoCode.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
