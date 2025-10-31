@@ -13,7 +13,6 @@ A modern, feature-rich shopping cart application built with vanilla JavaScript, 
 - [Core Modules](#core-modules)
 - [Promo Codes](#promo-codes)
 - [Browser Support](#browser-support)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## ✨ Features
@@ -316,16 +315,6 @@ Edit `js/promoCode.js` in the `validCodes` object:
 - [ ] Order history tracking
 - [ ] Email notifications
 - [ ] Advanced search with filters
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ### Coding Standards
 - Use ES6+ JavaScript features
