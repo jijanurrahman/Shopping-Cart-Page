@@ -2,11 +2,6 @@
 
 A modern, feature-rich shopping cart application built with vanilla JavaScript, HTML, and TailwindCSS. This project demonstrates clean code architecture, modular design patterns, and a responsive user interface.
 
-![Shopping Cart](https://img.shields.io/badge/Status-Complete-success)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-
 ## 📋 Table of Contents
 
 - [Features](#features)
@@ -94,15 +89,10 @@ Shopping Cart project/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/shopping-cart-project.git
+   git clone https://github.com/jijanurrahman/Shopping-Cart-Page.git
    ```
 
-2. **Navigate to project directory**
-   ```bash
-   cd shopping-cart-project
-   ```
-
-3. **Open in browser**
+2. **Open in browser**
    - Simply open `index.html` in your web browser
    - Or use a local server:
    ```bash
@@ -113,7 +103,7 @@ Shopping Cart project/
    npx http-server
    ```
 
-4. **Access the application**
+3. **Access the application**
    - Direct: Open `index.html` in browser
    - Server: Navigate to `http://localhost:8000`
 
@@ -314,10 +304,6 @@ Edit `js/promoCode.js` in the `validCodes` object:
 - Add custom styles in `style.css`
 - Update color scheme via Tailwind utility classes
 
-## 🐛 Known Issues
-
-- None currently reported
-
 ## 📝 Future Enhancements
 
 - [ ] User authentication and accounts
@@ -347,53 +333,26 @@ Contributions are welcome! Please follow these steps:
 - Add comments for complex logic
 - Test thoroughly before submitting
 
-## 📄 License
+## 📝 License
 
-This project is licensed under the MIT License - see below for details:
+This project is developed by **Jijanur Rahman** as part of personal practice in Advanced JavaScript, HTML, CSS, and Tailwind CSS with a primary focus on frontend development.
+
 
 ```
-MIT License
 
-Copyright (c) 2024 Shopping Cart Project
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## 📧 Contact
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+For any questions or suggestions, please contact:
+- **Developer**: [Jijanur Rahman](https://jijanurrahman.netlify.app)
+- **Project**: Online Library (Book Review System)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
-## 👨‍💻 Author
-
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
 
 ## 🙏 Acknowledgments
 
 - [TailwindCSS](https://tailwindcss.com/) for the utility-first CSS framework
 - [Font Awesome](https://fontawesome.com/) for the icon library
 - [Unsplash](https://unsplash.com/) for product images
-- Ostad for project inspiration and guidance
-
-## 📞 Support
-
-For support, email your.email@example.com or open an issue in the GitHub repository.
-
----
 
 **⭐ If you found this project helpful, please give it a star!**
 
-Made with ❤️ by [Your Name]
